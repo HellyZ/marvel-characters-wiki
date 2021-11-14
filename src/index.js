@@ -1,11 +1,11 @@
 import cardList from "./modules/cardList";
 import getData from "./modules/utils";
+import { debounce } from "./modules/utils";
 
 const selectMovies = document.querySelector(".form-select");
-const clearBtn = document.querySelector("#clear-btn");
-let cards = document.querySelector(".cards");
+const searchField = document.getElementById("searchField");
 
-let moviesList = [];
+let cards = document.querySelector(".cards");
 let characters = [];
 
 const renderCards = (cardsLists) => {
@@ -55,3 +55,17 @@ selectMovies.addEventListener("change", (e) => {
     renderCards(characters);
   }
 });
+
+searchField.addEventListener(
+  "input",
+  debounce((e) => {
+    clearCards();
+    const queryStr = e.target.value;
+    renderCards(
+      characters.filter(
+        (item) =>
+          item.name?.includes(queryStr) || item.realName?.includes(queryStr)
+      )
+    );
+  }, 1000)
+);
