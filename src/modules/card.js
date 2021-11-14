@@ -1,10 +1,15 @@
 const card = (character) => {
-
   let cardDiv = document.createElement("div");
   let cardImg = document.createElement("img");
   let cardBody = document.createElement("div");
   let cardTitle = document.createElement("h2");
   let cardText = document.createElement("p");
+
+  let isValue = (value) => {
+    if (typeof value !== "undefined" && value !== null) {
+      return value;
+    } else return "Unknown";
+  };
 
   cardDiv.classList.add("card");
   cardImg.classList.add("card-img-top");
@@ -21,13 +26,13 @@ const card = (character) => {
   cardBody.append(cardTitle);
   cardBody.append(cardText);
 
-  cardText.innerHTML = `<b>Real name: </b>${character.realName}<br />
-  <b>Species: </b>${character.species}<br />
-  <b>Citizenship: </b>${character.citizenship}<br />
-  <b>Gender: </b>${character.gender}<br />
-  <b>Status: </b>${character.status}<br />
-  <b>Actors: </b>${character.actors}<br />
-  <b>Movies: </b>${character.movies}<br />`;
+  cardText.innerHTML = `<b>Real name: </b>${isValue(character.realName)}<br />
+  <b>Species: </b>${isValue(character.species)}<br />
+  <b>Citizenship: </b>${isValue(character.citizenship)}<br />
+  <b>Gender: </b>${isValue(character.gender)}<br />
+  <b>Status: </b>${isValue(character.status)}<br />
+  <b>Actors: </b>${isValue(character.actors)}<br />
+  <b>Movies: </b>${isValue(character.movies)}<br />`;
 
   return cardDiv;
 };

@@ -133,7 +133,11 @@
     "gender": "male",
     "status": "alive",
     "actors": "Dave Bautista",
-    "photo": "dbimage/Drax_AIW_Profile.jpg"
+    "photo": "dbimage/Drax_AIW_Profile.jpg",
+    "movies": [
+      "Guardians of the Galaxy",
+      "Guardians of the Galaxy Vol. 2"
+    ]
   },
   {
     "name": "Dum Dum Dugan",
