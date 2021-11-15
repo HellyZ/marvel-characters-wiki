@@ -9,7 +9,6 @@ let cards = document.querySelector(".cards");
 let characters = [];
 
 const renderCards = (cardsLists) => {
-  console.log(cardsLists);
   cardList(cardsLists);
 };
 
@@ -61,10 +60,14 @@ searchField.addEventListener(
   debounce((e) => {
     clearCards();
     const queryStr = e.target.value;
+    console.log(queryStr);
     renderCards(
       characters.filter(
         (item) =>
-          item.name?.includes(queryStr) || item.realName?.includes(queryStr)
+          item.name?.includes(queryStr) ||
+          item.realName?.includes(queryStr) ||
+          (item.name)?.toLowerCase().includes(queryStr) ||
+          (item.realName)?.toLowerCase().includes(queryStr) 
       )
     );
   }, 1000)
